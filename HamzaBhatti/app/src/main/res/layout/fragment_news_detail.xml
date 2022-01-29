@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="model"
+            type="com.hamza.bhatti.models.News" />
+    </data>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.NewsDetailFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_news"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/lay_header"
+            layout="@layout/lay_header"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/light_gray"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_news"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_150"
+            android:layout_alignParentEnd="true"
+            load_detail="@{model}"
+            android:scaleType="centerCrop"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/dimen_10"
+            >
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@{model.published_date}"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/heading2"
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.title}"
+                android:layout_marginTop="@dimen/dimen_10"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:text="@{model.abstract}"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</FrameLayout>
+</layout>
